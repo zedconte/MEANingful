@@ -1,0 +1,2 @@
+# MEANingful
+MEAN CRUD App
