@@ -7,8 +7,8 @@ var bodyParser = require('body-parser');
 
 // Database
 var mongo = require('mongoskin');
-var db = mongo.db("mongodb://localhost:27017/nodetest2", {native_parser:true});
-//var db = mongo.db("mongodb://raul:1366@ds031972.mongolab.com:31972/heroku_app36603463", {native_parser:true});
+//var db = mongo.db("mongodb://localhost:27017/nodetest2", {native_parser:true});
+var db = mongo.db("mongodb://raul:1366@ds031862.mongolab.com:31862/heroku_app36637925", {native_parser:true});
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
