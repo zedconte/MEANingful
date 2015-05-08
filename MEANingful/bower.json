@@ -1,0 +1,20 @@
+{
+  "name": "MEANingful",
+  "version": "0.0.0",
+  "description": "something MEANingful",
+  "main": "app.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "MEAN"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
