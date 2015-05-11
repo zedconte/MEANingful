@@ -7,6 +7,7 @@
 		http = require('http'), 
 		path = require('path'), 
 		favicon = require('serve-favicon'), 
+		serveStatic = require('serve-static'),
 		bodyParser = require('body-parser'),
 		methodOverride = require('method-override'),
 		errorHandler = require('errorhandler'),
@@ -24,8 +25,8 @@
 	app.use(methodOverride());
 	
 
-	app.use(express.static(path.join(__dirname, 'public')));
-	app.use('/bower_components', express.static(path.join(__dirname,
+	app.use(serveStatic(path.join(__dirname, 'public')));
+	app.use('/bower_components', serveStatic(path.join(__dirname,
 			'/bower_components')));
 
 	// development only
