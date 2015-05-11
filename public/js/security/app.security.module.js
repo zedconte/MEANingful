@@ -27,7 +27,8 @@
 							templateUrl : "views/security/login",
 							controller : "LoginCtrl",
 							controllerAs : 'vm'
-						}).state('security.users', {
+						})
+            .state('security.users', {
 							url : '/users',
 							templateUrl : "views/security/users",
 							controller : "UsersCtrl",

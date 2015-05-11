@@ -11,7 +11,7 @@
 	/*
 	 * GET userlist.
 	 */
-	router.get('/user/:id', function(req, res) {
+	router.get('/api/user/:id', function(req, res) {
 	    var userToGet = req.params.id;
 	    api.get(userToGet).toArray(function (err, items) {
 	        res.json(items);
@@ -21,10 +21,8 @@
 	/*
 	 * GET userlist.
 	 */
-	router.get('/user', function(req, res) {
-	    api.getAll().toArray(function (err, items) {
-	        res.json(items);
-	    });
+	router.get('/api/user', function(req, res) {
+	    res.json(api.getAll());
 	});
 
 	
@@ -70,7 +68,7 @@
 	 	  var name = req.params.name;
 		  res.render('security/' + name);
 		});
-		app.all('/user', router);
+		app.all('/api/user', router);
 	};
 
 

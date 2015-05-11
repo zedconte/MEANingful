@@ -4,7 +4,7 @@
 
 (function() {
 	'use strict';
-	angular.module('app', [ 'app.security', 'ui.router' ]).config(
+	angular.module('app', [ 'app.security', 'ui.router']).config(
 			[ '$stateProvider', '$urlRouterProvider',
 					function($stateProvider, $urlRouterProvider) {
 						$stateProvider.state('home', {

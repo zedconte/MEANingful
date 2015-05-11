@@ -5,7 +5,8 @@ var Provider = {
 	 * GET userlist.
 	 */
 	getAll : function() {
-	    return db.collection('userlist').find();
+		return [{id: 1,username: 'raul', email:'r@unosquare'}];
+	    //return db.collection('userlist').find();
 	},
 	/*
 	 * GET userlist.

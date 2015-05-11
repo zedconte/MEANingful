@@ -11,16 +11,16 @@ block content
             h2 User Info
             p
                 strong Name:
-                |  <span id='userInfoName'></span>
+                //|  <span id='userInfoName'></span>
                 br
                 strong Age:
-                |  <span id='userInfoAge'></span>
+                //|  <span id='userInfoAge'></span>
                 br
                 strong Gender:
-                |  <span id='userInfoGender'></span>
+                //|  <span id='userInfoGender'></span>
                 br
                 strong Location:
-                |  <span id='userInfoLocation'></span>
+                //|  <span id='userInfoLocation'></span>
         // /USER INFO
 
         // USER LIST
@@ -30,8 +30,19 @@ block content
                 thead
                     th UserName
                     th Email
-                    th Delete/Update?
+                    th Delete
+                    th Update
                 tbody
+                    tr(ng-repeat='user in vm.Users')
+                        td
+                            a(href='#', class='linkshowuser' rel='{{user.username}}') {{user.username}}
+                        td
+                            {{user.email}}
+                        td
+                            a(href='#', class='linkdeleteuser' rel='{{user.id}}') delete
+                        td
+                            a(href='#', class='linkupdateuser' rel='{{user.id}}') update
+
         // /USER LIST
 
         // ADD USER
