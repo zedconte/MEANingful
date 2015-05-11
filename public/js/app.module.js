@@ -11,7 +11,15 @@ angular.module('app', ['app.security', 'ui.router']).config([
                                                                  .state('home', {
                                                                    url: '/',
                                                                    abstract: true,
-                                                                   templateUrl: "/index.html",
+                                                                   templateUrl: "views/index",
+                                                                   views: {
+                                                                    'footer': {
+                                                                      templateUrl: 'views/shared/footer'
+                                                                    },
+                                                                    'header': {
+                                                                      templateUrl: 'views/shared/header'
+                                                                    }
+                                                                   }
                                                                  });
                                                                  
 
