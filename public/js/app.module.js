@@ -10,15 +10,7 @@
 						$stateProvider.state('home', {
 							url : '/',
 							abstract : true,
-							templateUrl : "views/index",
-							views : {
-								'footer' : {
-									templateUrl : 'views/shared/footer'
-								},
-								'header' : {
-									templateUrl : 'views/shared/header'
-								}
-							}
+							templateUrl : "views/index"
 						});
 
 						$urlRouterProvider.otherwise('/');

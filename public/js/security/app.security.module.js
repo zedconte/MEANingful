@@ -1,35 +1,41 @@
 /**
  * New node file
  */
-(function(){
+(function() {
 
-angular.module('app.security', ['ui.router']).config([
-                                                       '$stateProvider',
-                                                       '$urlRouterProvider',
-                                                       function($stateProvider, $urlRouterProvider){
-                                                         $stateProvider
-                                                         .state('security', {
-                                                             url: '/admin',
-                                                             abstract: true,
-                                                             parent: 'home',
-                                                             templateUrl: "views/security/security",
-                                                           })
-                                                           .state('security.login', {
-                                                             url: '/login',
-                                                             templateUrl: "views/security/login",
-                                                             controller: "LoginCtrl",
-                                                             controllerAs: 'vm'
-                                                           }).state('security.users', {
-                                                             url: '/users',
-                                                             templateUrl: "views/security/users",
-                                                             controller: "UsersCtrl",
-                                                             controllerAs: 'vm'
-                                                           });
-                                                           
+	angular.module('app.security', [ 'ui.router' ]).config(
+			[ '$stateProvider', '$urlRouterProvider',
+					function($stateProvider, $urlRouterProvider) {
+						$stateProvider.state('security', {
+							url : 'admin',
+							abstract : true,
+							parent : 'home',
+							views : {
+								'footer' : {
+									templateUrl : 'views/shared/footer'
+								},
+								'header' : {
+									templateUrl : 'views/shared/header'
+								},
+								'content' : {
+									templateUrl : 'views/security/security'
+								}
+							}
 
-                                                         $urlRouterProvider.otherwise('/');
+						}).state('security.login', {
+							url : '/login',
+							templateUrl : "views/security/login",
+							controller : "LoginCtrl",
+							controllerAs : 'vm'
+						}).state('security.users', {
+							url : '/users',
+							templateUrl : "views/security/users",
+							controller : "UsersCtrl",
+							controllerAs : 'vm'
+						});
 
-                                                       }
-                                                     ]);
+						$urlRouterProvider.otherwise('/');
+
+					} ]);
 
 })();
