@@ -4,9 +4,8 @@
  */
 
 var express = require('express')
-  , routesIndex = require('./routes/index')
-  , routesSecurity = require('./routes/security')
-  , http = require('http')
+	,router = require('./routes/router')
+   , http = require('http')
   , path = require('path');
 
 var app = express();
@@ -28,9 +27,8 @@ if ('development' === app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routesIndex.routes);
-app.get('/views/security/:name', routesSecurity.routes);
-app.get('*', routesIndex.routes);
+router(app);
+
 
 
 http.createServer(app).listen(app.get('port'), function(){

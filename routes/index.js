@@ -3,11 +3,11 @@
  * GET home page.
  */
 
-var path = require('path');
-
-exports.routes = function(req, res){
+module.exports = function (app){
+		app.get('/views/index/:name', function(req, res){
+	 	  var name = req.params.name;
+		  res.render('index/' + name);
+		});
 		
-        res.render('layout'); // load the single view file (angular will handle the page changes on the front-end)
-    
 };
 
