@@ -19,13 +19,11 @@
 		
 		// private function
 		var load = function() {
-				// todo move to a service
+				// TODO move to a service using $resource
 			    $.get( '/api/user', function( data ) {
 			        
 			    	$scope.$apply(function(){
-			    		_.each(data, function(x){ 
-			    			vm.Users.push(new User(x));
-			    			});
+			    		_.each(data, function(x){ 	vm.Users.push(new User(x));	});
 			        });
 			        
 			    });
