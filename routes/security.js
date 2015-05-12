@@ -20,7 +20,9 @@
 	 * GET userlist.
 	 */
 	router.get('/api/user', function(req, res) {
-	    res.json(api.getAll());
+	    api.getAll().toArray(function (err, items) {
+	        res.json(items);
+	    });
 	});
 
 	

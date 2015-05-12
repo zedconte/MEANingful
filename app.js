@@ -19,11 +19,11 @@
 
 	var app = express();
 	BundleUp(app, assets, {
-		  staticRoot: __dirname,
+		  staticRoot: __dirname+ '/public/',
 		  staticUrlRoot:'/',
 		  bundle:true,
-		  minifyCss: true,
-		  minifyJs: true,
+		  minifyCss: false,
+		  minifyJs: false,
 		  complete: console.log.bind(console, "Bundle-up: static files are minified/ready")
 		});
 	// all environments
@@ -35,8 +35,10 @@
 	app.use(bodyParser.urlencoded({ extended: true }));
 	app.use(methodOverride());
 	
+
 	
-	app.use(serveStatic(__dirname));
+	app.use(serveStatic(path.join(__dirname, 'public')));
+//	app.use(serveStatic(path.join(__dirname, 'bower_components')));
 //	app.use('/bower_components', serveStatic(path.join(__dirname,
 //			'/bower_components')));
 
