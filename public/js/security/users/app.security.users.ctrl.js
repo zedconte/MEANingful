@@ -2,23 +2,40 @@
  * New node file
  */
 (function(){
-
-	var UsersCtrl = function(){
+	var User = function(data){
+		this.id = 0;
+		this.name = '';
+		this.email = '';
+		if (data){
+			this.id = data.id;
+			this.name = data.username;
+			this.email = data.email;
+		}
+	};
+	
+	var UsersCtrl = function($scope){
 		var vm = this;
-		//this.Username = '';
-		vm.Users = [];
-		vm.load = function() {
-
-			    // jQuery AJAX call for JSON
-			    $.getJSON( '/api/user', function( data ) {
-			        // Stick our user data array into a userlist variable in the global object
-			        vm.Users = data;
+		vm.Users =[];
+		
+		// private function
+		var load = function() {
+				// todo move to a service
+			    $.get( '/api/user', function( data ) {
+			        
+			    	$scope.$apply(function(){
+			    		_.each(data, function(x){ 
+			    			vm.Users.push(new User(x));
+			    			});
+			        });
+			        
 			    });
 			};
-		vm.load();
-	}
+			
+			
+	    load();
+	};
 	
-
+	UsersCtrl.$inject=['$scope'];
 
 	angular.module('app.security').controller('UsersCtrl', UsersCtrl);
 	
