@@ -2,15 +2,20 @@ doctype html
 html(ng-app = "app")
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src='/bower_components/jquery/dist/jquery.min.js')
-    script(src='/bower_components/underscore/underscore-min.js')
-    script(src='/bower_components/angular/angular.min.js')
-    script(src='/bower_components/angular-ui-router/release/angular-ui-router.min.js')
-    script(src='/js/security/app.security.module.js')
-    script(src='/js/security/login/app.security.login.ctrl.js')
-    script(src='/js/security/users/app.security.users.ctrl.js')
+    != renderStyles()
+    != renderJs('vendor')
+    //link(rel='stylesheet', href='/stylesheets/style.css')
+    //script(src='/bower_components/jquery/dist/jquery.min.js')
+    //script(src='/bower_components/underscore/underscore-min.js')
+    //script(src='/bower_components/angular/angular.min.js')
+    //script(src='/bower_components/angular-ui-router/release/angular-ui-router.min.js')
+    //script(src='/js/security/app.security.module.js')
+    //script(src='/js/security/login/app.security.login.ctrl.js')
+    //script(src='/js/security/users/app.security.users.ctrl.js')
     
-    script(src='/js/app.module.js')
+    //script(src='/js/app.module.js')
+    
   body
     ui-view
+    
+    != renderJs()

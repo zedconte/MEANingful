@@ -3,9 +3,7 @@
  */
 
 	var express = require('express');
-	console.log('creating router' + express);
 	var router = express.Router();
-	console.log('router - ' + router);
 	var api =  require('../server/api/user.api');
 	
 	/*

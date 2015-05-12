@@ -3,7 +3,6 @@
  */
 
 module.exports = function (app){
-	   console.log('loading default routes... ');
 	   app.get('/views/shared/:name', function(req, res){
 		 	  var name = req.params.name;
 			  res.render('shared/' + name);
