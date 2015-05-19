@@ -32,7 +32,7 @@ block content
                     th Email
                     th Delete
                     th Update
-                tbody()
+                tbody(ng-init='vm.Get()')
                     tr(ng-repeat='user in vm.Users')
                         td
                             a(href='#', class='linkshowuser' rel='{{user.name}}') {{user.name}}
