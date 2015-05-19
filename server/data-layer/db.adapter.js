@@ -6,11 +6,12 @@ bb.promisifyAll(mongo);
 bb.promisifyAll(mongo.Cursor.prototype);
 var mongoClient = bb.promisifyAll(mongo.MongoClient);
 
-function getConnection() {
-	return mongoClient.connectAsync(dbconfig.connString, { db: {native_parser:true }})
+var getConnection = function () {
+	return mongoClient
+			.connectAsync(dbconfig.connString, { db: {native_parser:true }})
 			.catch(function(err) {
 				console.log(err);
-				return bb.reject();
+				return bb.reject("Can't connect to DB server");
 			})
 			.disposer(function(db){
 				if (db) db.close();
