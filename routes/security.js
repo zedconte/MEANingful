@@ -2,8 +2,7 @@
  * New node file
  */
 
-	var express = require('express');
-	var router = express.Router();
+	var router  = require('express-promise-router')();
 	var api =  require('../server/api/user.api');
 	
 	/*
@@ -11,18 +10,21 @@
 	 */
 	router.get('/api/user/:id', function(req, res) {
 	    var userToGet = req.params.id;
-	    api.get(userToGet).toArray(function (err, items) {
-	        res.json(items);
-	    });
+	    res.json(api.get(userToGet));
+//	    api.get(userToGet).toArray(function (err, items) {
+//	        res.json(items);
+//	    });
 	});
 	
 	/*
 	 * GET userlist.
 	 */
 	router.get('/api/user', function(req, res) {
-	    api.getAll().toArray(function (err, items) {
-	        res.json(items);
-	    });
+		res.json(api.getAll());
+		
+//	    api.getAll().then(function(users){
+//	    	res.json(users);
+//	    });
 	});
 
 	

@@ -13,9 +13,10 @@
 		errorHandler = require('errorhandler'),
 		morgan = require('morgan'),
 		BundleUp = require('bundle-up3'),
-		assets = require('./assets');
+		assets = require('./assets'),
+		async = require('./async');
 	
-	
+	async();
 
 	var app = express();
 	BundleUp(app, assets, {
@@ -35,7 +36,7 @@
 	app.use(bodyParser.urlencoded({ extended: true }));
 	app.use(methodOverride());
 	
-
+	
 	
 	app.use(serveStatic(path.join(__dirname, 'public')));
 //	app.use(serveStatic(path.join(__dirname, 'bower_components')));
@@ -46,9 +47,9 @@
 	if ('development' === app.get('env')) {
 		app.use(errorHandler());
 	}
-
+	app.use(require('express-promise')());
 	router(app);
-
+	
 	http.createServer(app).listen(app.get('port'), function() {
 		console.log('Express server listening on port ' + app.get('port'));
 	});
